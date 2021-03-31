@@ -1,4 +1,7 @@
-package com.example.agendaalura.ui.activity
+package com.example.agendaalura.ui.activity.models
 
-class Aluno {
+data class Aluno(val nome: String,val phone: String,val email: String){
+    override fun toString(): String {
+        return nome
+    }
 }

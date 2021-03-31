@@ -10,12 +10,12 @@ import com.example.agendaalura.ui.activity.models.Aluno
 import com.example.agendaalura.ui.activity.dao.AlunoDAO
 
 class FormularioAlunoActivity : AppCompatActivity() {
+    private val TITLE_APPBAR = "Novo aluno"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario_aluno)
-
+        title = TITLE_APPBAR
         val dao = AlunoDAO
-
         val btnSalvarAluno = findViewById<Button>(R.id.activity_formulario_aluno_botao_salvar)
         val nomeCampo = findViewById<EditText>(R.id.activity_formulario_aluno_nome)
         val phoneCampo = findViewById<EditText>(R.id.activity_formulario_aluno_telefone)
@@ -27,8 +27,7 @@ class FormularioAlunoActivity : AppCompatActivity() {
             val emailAluno = emailCampo.text.toString()
 
             dao.salvar(Aluno(nomeAluno, phoneAluno, emailAluno))
-
-            startActivity(Intent(this, ListaAlunosActivity::class.java))
+            finish()
         }
     }
 }
